@@ -21,13 +21,12 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <id>tenv</id>
     <version>PACK_VERSION</version>
     <packageSourceUrl>https://github.com/tofuutils/tenv</packageSourceUrl>
-    <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>tofuutils</owners>
     <title>tenv</title>
     <authors>tofuutils</authors>
     <projectUrl>https://github.com/tofuutils/tenv</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/tofuutils/tenv/main/assets/logo.png</iconUrl>
-    <!-- <copyright>Year Software Vendor</copyright> -->
+    <copyright>Copyright 2024 tofuutils authors</copyright>
     <licenseUrl>https://github.com/tofuutils/tenv/blob/main/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/tofuutils/tenv</projectSourceUrl>
