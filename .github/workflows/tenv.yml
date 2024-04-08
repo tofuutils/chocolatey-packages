@@ -10,7 +10,7 @@ defaults:
     shell: bash
 
 jobs:
-  test:
+  cicd:
     runs-on: windows-latest
     steps:
       - name: Checkout
