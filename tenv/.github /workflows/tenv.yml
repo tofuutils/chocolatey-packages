@@ -1,0 +1,45 @@
+name: "[tenv] delivery / chocolatey"
+
+on:
+  push:
+    tags:
+      - "*"
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get release version
+        id: get_version
+        run: echo "::set-output name=version::${GITHUB_REF#refs/tags/}"
+
+      - name: Fill nuspec
+        run: |
+          file=tenv/tenv.nuspec
+          sed -i "s/{{PACK_VERSION}}/${{ steps.get_version.outputs.version }}/g" $file
+          cat $file
+
+      - name: build-release
+        uses: crazy-max/ghaction-chocolatey@v3
+        with:
+          args: pack tenv/tenv.nuspec --outputdirectory tenv
+
+      - name: Test Release
+        uses: crazy-max/ghaction-chocolatey@v3
+        with:
+          args: install pack -s tenv
+
+      - name: Ensure Pack Installed
+        run: pack help
+
+      - name: Upload Release
+        uses: crazy-max/ghaction-chocolatey@v3
+        with:
+          args: push tenv/tenv.${{ steps.get_version.outputs.version }}.nupkg -s https://push.chocolatey.org/ -k ${{ secrets.API_KEY }}
