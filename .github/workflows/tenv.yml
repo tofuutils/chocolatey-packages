@@ -18,12 +18,12 @@ jobs:
 
       - name: Get release version
         id: get_version
-        run: echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
+        run: echo "::set-output name=version::${GITHUB_REF#refs/tags/}"
 
       - name: Fill nuspec
         run: |
           file=tenv/tenv.nuspec
-          sed -i "s/{{PACK_VERSION}}/${{ steps.get_version.outputs.version }}/g" $file
+          sed -i "s/PACK_VERSION/${{ steps.get_version.outputs.version }}/g" $file
           cat $file
 
       - name: build-release
