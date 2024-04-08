@@ -4,15 +4,9 @@
 
 * [tenv](https://github.com/tofuutils/tenv)
 
-## tenv
-The current version is 1.7.0, install it using choco:
-```
-choco install tenv
-```
+## How to install packages
 
-# Calculating SHA256
-
-Calculating SHA256 for packages where not applicable
-```powershell
-certUtil -hashfile pathToFileToCheck SHA256
+You can install any packages from the list above by the following Chocolatey command:
+```shell
+choco install <tool_name>
 ```
