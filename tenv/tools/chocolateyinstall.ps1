@@ -1,9 +1,9 @@
 $ErrorActionPreference = 'Stop'
 
-$url = 'https://github.com/tofuutils/tenv/releases/download/v4.0.3/tenv_v4.0.3_Windows_i386.zip'
-$url64 = 'https://github.com/tofuutils/tenv/releases/download/v4.0.3/tenv_v4.0.3_Windows_x86_64.zip'
-$checksum = '47de47b86ff744f1006b0618fd7b739c33d9f0e073be3742d897ecb8815612d8'
-$checksum64 = '3bbe39f73da0eca75db62467f0cbe5fc3820609326dd19510c5d01d256e19443'
+$url = 'https://github.com/tofuutils/tenv/releases/download/v4.1.0/tenv_v4.1.0_Windows_i386.zip'
+$url64 = 'https://github.com/tofuutils/tenv/releases/download/v4.1.0/tenv_v4.1.0_Windows_x86_64.zip'
+$checksum = 'e0f85ea4e558f0d3f876e1812f8e430fdc191d4777969b4a22597a5dae88aa73'
+$checksum64 = '1d79047fcfda447febb06147f7e7946464e3919811f975cba3d8295c6f1bf174'
 
 $unzipLocation = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
