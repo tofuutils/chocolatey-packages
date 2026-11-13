@@ -14,7 +14,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # ratchet:actions/checkout@v4
 
       - name: Get release version
         id: get_version
@@ -27,12 +27,12 @@ jobs:
           cat $file
 
       - name: build-release
-        uses: crazy-max/ghaction-chocolatey@v3
+        uses: crazy-max/ghaction-chocolatey@2526f467ccbd337d307fe179959cabbeca0bc8c0 # ratchet:crazy-max/ghaction-chocolatey@v3
         with:
           args: pack tenv/tenv.nuspec --outputdirectory tenv
 
       - name: Test Release
-        uses: crazy-max/ghaction-chocolatey@v3
+        uses: crazy-max/ghaction-chocolatey@2526f467ccbd337d307fe179959cabbeca0bc8c0 # ratchet:crazy-max/ghaction-chocolatey@v3
         with:
           args: install tenv -s tenv
 
@@ -40,6 +40,6 @@ jobs:
         run: tenv --help
 
       - name: Upload Release
-        uses: crazy-max/ghaction-chocolatey@v3
+        uses: crazy-max/ghaction-chocolatey@2526f467ccbd337d307fe179959cabbeca0bc8c0 # ratchet:crazy-max/ghaction-chocolatey@v3
         with:
           args: push tenv/tenv.${{ steps.get_version.outputs.version }}.nupkg -s https://push.chocolatey.org/ -k ${{ secrets.API_KEY }}
